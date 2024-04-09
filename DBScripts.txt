@@ -1,0 +1,42 @@
+USE [TEST]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+------------- Create Table ------------------------------
+CREATE TABLE [dbo].[ORDERDETAILS](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ORDER_NUMBER] [varchar](100) NULL,
+	[UPDATED_DATE] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+
+-------------------- Insert Stored Procedure -----------------------------------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[INSERTORDERDETAILS]
+@oNumber varchar(100),
+@result int output
+
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+    INSERT INTO dbo.ORDERDETAILS(ORDER_NUMBER,UPDATED_DATE)
+	VALUES(@oNumber,GETDATE())
+
+	SELECT @result = SCOPE_IDENTITY()
+
+END
+
+GO

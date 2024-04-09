@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx?wsdl" filename="orders_internal.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx?disco" filename="orders_internal.disco" />
+  </Results>
+</DiscoveryClientResultsFile>

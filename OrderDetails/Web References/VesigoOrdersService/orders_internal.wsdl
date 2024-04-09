@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tns="http://www.ontimesystem.com/sites/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://www.ontimesystem.com/sites/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ontimesystem.com/sites/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="SetSignatureRequirement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireCollectionSignature" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireDeliverySignature" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSignatureRequirementResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetCODRequirement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="AmountToCollect" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireCollectionCOD" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="RequireDeliveryCOD" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCODRequirementResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetUserDefinedField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Value" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserDefinedFieldResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOrderAsXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderAsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderAsXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationAsXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationAsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationAsXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrdersByStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrdersByStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrdersByStatusResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOrderColumnByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ColumnName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOrderColumnByNameResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOrderColumnByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ColumnName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderColumnByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderColumnByNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTotalPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Order" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Order">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UTCSubmissionDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepartmentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubaccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceSetName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UTCPickupDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UTCDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Distance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeclaredValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TriggerWorkflowEvents" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomingTrackingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutgoingTrackingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionStreet1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionStreet2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollectionEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryStreet1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryStreet2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Options" type="tns:ArrayOfOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Option" nillable="true" type="tns:Option" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Option">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomValue" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Depth" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTotalPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTotalPriceResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Order" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertOrderStatusChange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusLabelText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusLevel" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UTCChangeDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertOrderStatusChangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertOrderStatusChangeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderFileAttachmentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderFileAttachmentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderFileAttachmentListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderFileAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNameWithExtension" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderFileAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderFileAttachmentResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderFileAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNameWithExtension" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileContents" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderFileAttachmentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteOrderFileAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNameWithExtension" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteOrderFileAttachmentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OnlyUsersClockedIn" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderUserLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrackingNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderUserLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderUserLocationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLocationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersAssignedToUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrdersAssignedToUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrdersAssignedToUserResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderAddModifier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderTrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModifierName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderAddModifierResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrderRemoveModifier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderTrackingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ModifierName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderRemoveModifierResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrderAddMiscUserCompensation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderTrackingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MoneyAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderAddMiscUserCompensationResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurityKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Website" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Street2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateCustomerResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetSignatureRequirementSoapIn">
+    <wsdl:part name="parameters" element="tns:SetSignatureRequirement" />
+  </wsdl:message>
+  <wsdl:message name="SetSignatureRequirementSoapOut">
+    <wsdl:part name="parameters" element="tns:SetSignatureRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCODRequirementSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCODRequirement" />
+  </wsdl:message>
+  <wsdl:message name="SetCODRequirementSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCODRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetUserDefinedFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserDefinedField" />
+  </wsdl:message>
+  <wsdl:message name="SetUserDefinedFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserDefinedFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderAsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderAsXML" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderAsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderAsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationAsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationAsXML" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationAsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationAsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrdersByStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrdersByStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetOrdersByStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrdersByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetOrderColumnByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:SetOrderColumnByName" />
+  </wsdl:message>
+  <wsdl:message name="SetOrderColumnByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:SetOrderColumnByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderColumnByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderColumnByName" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderColumnByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderColumnByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTotalPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetTotalPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTotalPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertOrderStatusChangeSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertOrderStatusChange" />
+  </wsdl:message>
+  <wsdl:message name="InsertOrderStatusChangeSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertOrderStatusChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderFileAttachmentListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderFileAttachmentList" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderFileAttachmentListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderFileAttachmentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderFileAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderFileAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderFileAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderFileAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderFileAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderFileAttachment" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderFileAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderFileAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOrderFileAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOrderFileAttachment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOrderFileAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOrderFileAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserListSoapIn">
+    <wsdl:part name="parameters" element="tns:UserList" />
+  </wsdl:message>
+  <wsdl:message name="UserListSoapOut">
+    <wsdl:part name="parameters" element="tns:UserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:UserDetail" />
+  </wsdl:message>
+  <wsdl:message name="UserDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:UserDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderUserLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderUserLocation" />
+  </wsdl:message>
+  <wsdl:message name="OrderUserLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderUserLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLocation" />
+  </wsdl:message>
+  <wsdl:message name="UserLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrdersAssignedToUserSoapIn">
+    <wsdl:part name="parameters" element="tns:OrdersAssignedToUser" />
+  </wsdl:message>
+  <wsdl:message name="OrdersAssignedToUserSoapOut">
+    <wsdl:part name="parameters" element="tns:OrdersAssignedToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderAddModifierSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderAddModifier" />
+  </wsdl:message>
+  <wsdl:message name="OrderAddModifierSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderAddModifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderRemoveModifierSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderRemoveModifier" />
+  </wsdl:message>
+  <wsdl:message name="OrderRemoveModifierSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderRemoveModifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderAddMiscUserCompensationSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderAddMiscUserCompensation" />
+  </wsdl:message>
+  <wsdl:message name="OrderAddMiscUserCompensationSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderAddMiscUserCompensationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="orders_internalSoap">
+    <wsdl:operation name="SetSignatureRequirement">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the signature requirements on an order. Submit the tracking number of the order and then two Boolean values indicating where signature capture should take place. Both collection and delivery locations can support signature requirement. Set both Boolean values to "False" to disable the signature requirement on the order.</wsdl:documentation>
+      <wsdl:input message="tns:SetSignatureRequirementSoapIn" />
+      <wsdl:output message="tns:SetSignatureRequirementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCODRequirement">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the COD requirements on an order. Submit the tracking number of the order, the amount to be collected, and then two Boolean values indicating where collection should take place. When specifying the Boolean values, do not set both to "True" since the COD can only be set for either the collection or delivery location, not both. Set both Boolean values to "False" to disable the COD on the order.</wsdl:documentation>
+      <wsdl:input message="tns:SetCODRequirementSoapIn" />
+      <wsdl:output message="tns:SetCODRequirementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserDefinedField">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates a user defined field associated with an order. The tracking number of the order, the name of the user defined field, and the value to set the field to should be specified.</wsdl:documentation>
+      <wsdl:input message="tns:SetUserDefinedFieldSoapIn" />
+      <wsdl:output message="tns:SetUserDefinedFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderAsXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns contents of the specified order as an XML formatted string.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderAsXMLSoapIn" />
+      <wsdl:output message="tns:GetOrderAsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationAsXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the details of a location based on the specified ID.</wsdl:documentation>
+      <wsdl:input message="tns:GetLocationAsXMLSoapIn" />
+      <wsdl:output message="tns:GetLocationAsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a string array of tracking numbers belonging to a specified status and within a specified date range (date the order was submitted). The dates should be specified as UTC. A maximum of 10,000 tracking numbers (top sorted by most recent date first) may be returned per call. If you need to return more than this amount, it is recommended to use a more narrow date range. Status should be passed as one of the following integers: 1 = Submitted, 2 = In Transit, 3 = Completed, 4 = Cancelled.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrdersByStatusSoapIn" />
+      <wsdl:output message="tns:GetOrdersByStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOrderColumnByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the contents (as a string) of the specified column in the specified order.</wsdl:documentation>
+      <wsdl:input message="tns:SetOrderColumnByNameSoapIn" />
+      <wsdl:output message="tns:SetOrderColumnByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderColumnByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the contents of the specified column in the specified order as a string.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderColumnByNameSoapIn" />
+      <wsdl:output message="tns:GetOrderColumnByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the calculated price of an order.</wsdl:documentation>
+      <wsdl:input message="tns:GetTotalPriceSoapIn" />
+      <wsdl:output message="tns:GetTotalPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits an order and returns the tracking number of the order.</wsdl:documentation>
+      <wsdl:input message="tns:CreateOrderSoapIn" />
+      <wsdl:output message="tns:CreateOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrderStatusChange">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the status, as an integer, on an order based on the specified tracking number. 0 or 1 = Submitted, 2 = In Transit, 3 = Completed, 4 = Cancelled, 5 = Cancelled Billable. Also allows for a status label to be added. Returns TRUE if successful and FALSE if the tracking number was not found.</wsdl:documentation>
+      <wsdl:input message="tns:InsertOrderStatusChangeSoapIn" />
+      <wsdl:output message="tns:InsertOrderStatusChangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachmentList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of file names (as a string array) attached to an order. The tracking number for the order should be specified.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderFileAttachmentListSoapIn" />
+      <wsdl:output message="tns:GetOrderFileAttachmentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the contents of a file (as a byte array) that is attached to an order. The tracking number for the order should be specified, along with the file name, including the extension, but not the path.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderFileAttachmentSoapIn" />
+      <wsdl:output message="tns:GetOrderFileAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderFileAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds a file attachment to an order. The tracking number for the order should be specified, along with the file name, including the extension, but not the path. The file contents should be submitted as a byte array. File attachment size cannot exceed 200 KB in size.</wsdl:documentation>
+      <wsdl:input message="tns:AddOrderFileAttachmentSoapIn" />
+      <wsdl:output message="tns:AddOrderFileAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderFileAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a file that is attached to an order. The tracking number for the order should be specified, along with the file name, including the extension, but not the path.</wsdl:documentation>
+      <wsdl:input message="tns:DeleteOrderFileAttachmentSoapIn" />
+      <wsdl:output message="tns:DeleteOrderFileAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a XML formatted string containing a list of user details.</wsdl:documentation>
+      <wsdl:input message="tns:UserListSoapIn" />
+      <wsdl:output message="tns:UserListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a XML formatted string containing details of the specified user.</wsdl:documentation>
+      <wsdl:input message="tns:UserDetailSoapIn" />
+      <wsdl:output message="tns:UserDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderUserLocation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a XML formatted string containing details of the location of the user currently assigned to the specified order.</wsdl:documentation>
+      <wsdl:input message="tns:OrderUserLocationSoapIn" />
+      <wsdl:output message="tns:OrderUserLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLocation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a XML formatted string containing details of the location of the specified user.</wsdl:documentation>
+      <wsdl:input message="tns:UserLocationSoapIn" />
+      <wsdl:output message="tns:UserLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdersAssignedToUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a string array of active order tracking numbers currently assigned to the specified user.</wsdl:documentation>
+      <wsdl:input message="tns:OrdersAssignedToUserSoapIn" />
+      <wsdl:output message="tns:OrdersAssignedToUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddModifier">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds the specified price modifier to the specified order.</wsdl:documentation>
+      <wsdl:input message="tns:OrderAddModifierSoapIn" />
+      <wsdl:output message="tns:OrderAddModifierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderRemoveModifier">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes the specified price modifier to the specified order.</wsdl:documentation>
+      <wsdl:input message="tns:OrderRemoveModifierSoapIn" />
+      <wsdl:output message="tns:OrderRemoveModifierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddMiscUserCompensation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds the specified miscellaneous user compensation to the specified order.</wsdl:documentation>
+      <wsdl:input message="tns:OrderAddMiscUserCompensationSoapIn" />
+      <wsdl:output message="tns:OrderAddMiscUserCompensationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new customer record based on the current template customer and returns the ID of the new record.</wsdl:documentation>
+      <wsdl:input message="tns:CreateCustomerSoapIn" />
+      <wsdl:output message="tns:CreateCustomerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="orders_internalSoap" type="tns:orders_internalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetSignatureRequirement">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/SetSignatureRequirement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCODRequirement">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/SetCODRequirement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserDefinedField">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/SetUserDefinedField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderAsXML">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetOrderAsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationAsXML">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetLocationAsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByStatus">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetOrdersByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOrderColumnByName">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/SetOrderColumnByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderColumnByName">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetOrderColumnByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalPrice">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetTotalPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrderStatusChange">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/InsertOrderStatusChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachmentList">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetOrderFileAttachmentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachment">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/GetOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderFileAttachment">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/AddOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderFileAttachment">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/DeleteOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserList">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/UserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDetail">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/UserDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderUserLocation">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/OrderUserLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLocation">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/UserLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersAssignedToUser">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/OrdersAssignedToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddModifier">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/OrderAddModifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderRemoveModifier">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/OrderRemoveModifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddMiscUserCompensation">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/OrderAddMiscUserCompensation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://www.ontimesystem.com/sites/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="orders_internalSoap12" type="tns:orders_internalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetSignatureRequirement">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/SetSignatureRequirement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCODRequirement">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/SetCODRequirement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserDefinedField">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/SetUserDefinedField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderAsXML">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetOrderAsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationAsXML">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetLocationAsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByStatus">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetOrdersByStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOrderColumnByName">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/SetOrderColumnByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderColumnByName">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetOrderColumnByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalPrice">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetTotalPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrder">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/CreateOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrderStatusChange">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/InsertOrderStatusChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachmentList">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetOrderFileAttachmentList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderFileAttachment">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/GetOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderFileAttachment">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/AddOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderFileAttachment">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/DeleteOrderFileAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserList">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/UserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDetail">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/UserDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderUserLocation">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/OrderUserLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLocation">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/UserLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersAssignedToUser">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/OrdersAssignedToUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddModifier">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/OrderAddModifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderRemoveModifier">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/OrderRemoveModifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderAddMiscUserCompensation">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/OrderAddMiscUserCompensation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap12:operation soapAction="http://www.ontimesystem.com/sites/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="orders_internal">
+    <wsdl:port name="orders_internalSoap" binding="tns:orders_internalSoap">
+      <soap:address location="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx" />
+    </wsdl:port>
+    <wsdl:port name="orders_internalSoap12" binding="tns:orders_internalSoap12">
+      <soap12:address location="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

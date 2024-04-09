@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx?wsdl" docRef="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx" xmlns:q1="http://www.ontimesystem.com/sites/" binding="q1:orders_internalSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://www.vesigo.com/projects/ontime/customerwebportal/ws/orders_internal.asmx" xmlns:q2="http://www.ontimesystem.com/sites/" binding="q2:orders_internalSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
